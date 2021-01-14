@@ -1,0 +1,39 @@
+public class Tester{
+  public static void main(String[] args){
+    System.out.println(Radix.nth(12345, 0));
+    System.out.println(Radix.nth(12345, 1));
+    System.out.println(Radix.nth(12345, 2));
+    System.out.println(Radix.nth(12345, 3));
+    System.out.println(Radix.nth(12345, 4));
+    System.out.println(Radix.nth(-78345, 3));
+    System.out.println(Radix.nth(-78345, 4));
+    System.out.println(Radix.nth(10, 0));
+    System.out.println();
+
+    System.out.println(Radix.length(12345));
+    System.out.println(Radix.length(0));
+    System.out.println(Radix.length(10));
+    System.out.println(Radix.length(1));
+    System.out.println(Radix.length(-12345));
+    System.out.println(Radix.length(-0));
+    System.out.println(Radix.length(-10));
+    System.out.println();
+
+    MyLinkedList[]list = new MyLinkedList[10];
+    for (int i = 0; i < list.length; i++){
+      list[i] = new MyLinkedList();
+    }
+
+    list[0].add("test");
+    list[3].add("test3");
+    list[4].add("test4");
+    list[7].add("test7");
+    list[7].add("test7.0");
+    list[9].add("test9");
+
+    MyLinkedList list2 = new MyLinkedList();
+
+    Radix.merge(list2, list);
+    System.out.println(list2.toString());
+    }
+}

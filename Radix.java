@@ -1,10 +1,13 @@
 public class Radix{
   public static int nth(int n, int col){
     int temp = n / (int)Math.pow(10, col);
-    return temp%10;
+    return Math.abs(temp%10);
   }
 
   public static int length(int n){
+    if (n == 0){
+      return 1;
+    }
     int count = 0;
     while (n != 0){
       n = n / 10;
