@@ -16,9 +16,28 @@ public class Radix{
     return count;
   }
 
-  public static void merge(MyLinkedList original,MyLinkedList[]buckets){
+  public static void merge(SortableLinkedList original, SortableLinkedList[]buckets){
     for (int i = 0; i < 10; i++){
       original.extend(buckets[i]);
+    }
+  }
+
+  public static void radixSortSimple(SortableLinkedList data){
+    int mostDigits = 0;
+    for (int i = 0; i < data.size(); i++){
+       mostDigits = Math.max(length(data.get(i)), mostDigits);
+    }
+    SortableLinkedList[]buckets = new SortableLinkedList[10];
+    for (int i = 0; i < buckets.length; i++){
+      buckets[i] = new SortableLinkedList();
+    }
+    int size = data.size();
+    for (int i = 0; i < mostDigits; i++){
+      for (int j = 0; j < size; j++){
+        int temp = data.remove(0);
+        buckets[nth(temp, i)].add(temp);
+      }
+      merge(data, buckets);
     }
   }
 }

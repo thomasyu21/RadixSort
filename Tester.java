@@ -19,6 +19,7 @@ public class Tester{
     System.out.println(Radix.length(-10));
     System.out.println();
 
+/*
     MyLinkedList[]list = new MyLinkedList[10];
     for (int i = 0; i < list.length; i++){
       list[i] = new MyLinkedList();
@@ -35,5 +36,17 @@ public class Tester{
 
     Radix.merge(list2, list);
     System.out.println(list2.toString());
+    */
+
+    SortableLinkedList test = new SortableLinkedList();
+    for (int i = 0; i < 100; i++){
+      int temp = (int)(Math.random() * (int)Math.pow(10, (int)(Math.random()*10)));
+      if (Radix.length(temp) <= 3){
+        test.add(temp);
+      }
     }
+  System.out.println(test.toString());
+  Radix.radixSortSimple(test);
+  System.out.println(test.toString());
+  }
 }
