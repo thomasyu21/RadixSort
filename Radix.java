@@ -40,4 +40,25 @@ public class Radix{
       merge(data, buckets);
     }
   }
+
+  public static void radixSort(SortableLinkedList data){
+    int dataLength = data.size();
+    SortableLinkedList positive = new SortableLinkedList();
+    SortableLinkedList negative = new SortableLinkedList();
+    for (int i = 0; i < dataLength; i++){
+      int temp = data.remove(0);
+      if (temp >= 0){
+        positive.add(temp);
+      }else{
+        negative.add(temp);
+      }
+    }
+    radixSortSimple(negative);
+    int negativeLength = negative.size();
+    for (int i = 0; i < negativeLength; i++){
+      data.add(negative.remove(negative.size()-1));
+    }
+    radixSortSimple(positive);
+    data.extend(positive);
+  }
 }

@@ -45,8 +45,25 @@ public class Tester{
         test.add(temp);
       }
     }
-  System.out.println(test.toString());
-  Radix.radixSortSimple(test);
-  System.out.println(test.toString());
+    System.out.println(test.toString());
+    Radix.radixSortSimple(test);
+    System.out.println(test.toString());
+
+    SortableLinkedList test1 = new SortableLinkedList();
+    for (int i = 0; i < 100; i++){
+      int temp = (int)(Math.random() * (int)Math.pow(10, (int)(Math.random()*10)));
+      if (Radix.length(temp) <= 3){
+        test1.add(temp);
+      }
+    }
+    for (int i = 0; i < 100; i++){
+      int temp = (int)(-1 * (Math.random() * (int)Math.pow(10, (int)(Math.random()*10))));
+      if (Radix.length(temp) <= 3){
+        test1.add(temp);
+      }
+    }
+    System.out.println(test1.toString());
+    Radix.radixSort(test1);
+    System.out.println(test1.toString());
   }
 }
